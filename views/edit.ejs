@@ -1,0 +1,13 @@
+<form class="ml-3 col-8 form-group" action="/edit/<%= movie._id %>" method="post">
+    <h3>Editing <%= movie.title %></h3>
+    <label for="">Creator</label>
+    <input class="form-control" type="text" name="creator" value="<%= movie.creator.name %>">
+    <label for="">Genre</label>
+    <input class="form-control" type="text" name="genres" value="<%= movie.genre %>">
+    <label for="">Description</label>
+    <input class="form-control" type="text" name="desc" value="<%= movie.desc %>">
+    <label for="">Select image to upload</label>
+    <!-- <input class="form-control" type="file" name="image"> -->
+    <input class="form-control" type="text" name="imagePath" value="<%= movie.imagePath %>">
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>    

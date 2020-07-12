@@ -1,0 +1,11 @@
+<div class="form">
+    <form class="form-group" action="/creator/edit/<%= creator._id %>" method="post">
+        <label for="">Age</label>
+        <input class="form-control" type="text" name="age" value="<%= creator.age %>">
+        <label for="">Description</label>
+        <input class="form-control" type="text" name="desc" value="<%= creator.desc %>">        
+        <label for="">Image path</label>
+        <input class="form-control" type="text" name="imagePath" value="<%= creator.imagePath %>">
+        <button class="btn btn-primary" type="submit">Update</button>
+    </form>  
+</div>

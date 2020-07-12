@@ -1,0 +1,19 @@
+<div class="grid">
+    <% movies.forEach( movie => { %>
+        <div class="cell">
+            <img src="<%= movie.imagePath %>" alt="Poster">
+            <h5><%= movie.title %></h5>
+            <span class="block">by <%= movie.creator.name %></span>
+            <div>
+                <a class="btn btn-primary" href="/show/<%= movie._id %>"><i class="far fa-eye"></i></a>
+                <a class="btn btn-primary" href="/edit/<%= movie._id %>"><i class="fas fa-pen"></i></a>
+                <form class="inline-block" action="/remove/<%= movie._id %>?_method=DELETE" method="post">
+                    <button class="btn btn-danger" type="submit"><i class="fas fa-trash-alt"></i></button>
+                </form>   
+            </div>
+        </div>
+    <% }) %>      
+</div>
+<div class="bottom">
+    <a class="btn add-btn btn-primary" href="/add"><i class="fas fa-folder-plus"></i></a>
+</div>

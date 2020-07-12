@@ -1,0 +1,15 @@
+<div class="ml-4">
+    <h3><%= creator.name %></h3>
+    <p>Age: <%= creator.age %></p>
+    <p><%= creator.desc %></p>
+
+    <h3>Works by <%= creator.name %></h3>
+    <% creator.works.forEach( movie => { %>
+        <div>
+            <img class="left" src="<%= movie.imagePath %>" alt="Poster">
+            <p>Description: <%= movie.desc %></p>
+            <p>Creator: <%= creator.name %></p>
+            <p>Genre: <%= movie.genre %></p>
+        </div>
+    <% }) %>
+</div>

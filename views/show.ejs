@@ -1,0 +1,9 @@
+<div>
+    <img class="left lg-img" src="<%= movie.imagePath %>" alt="Poster">
+    <p>Description: <%= movie.desc %></p>
+    <p>Creator: <%= movie.creator.name %></p>
+    <p>Genre:</p>
+    <% movie.genres.forEach( genre => { %>
+        <p><%= genre.type %></p>
+    <% }) %>
+</div>

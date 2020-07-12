@@ -1,0 +1,15 @@
+<% genres.forEach( genre => { %>
+    <div class="pills">
+        <%= genre.type %>
+        <a class="btn btn-primary" href="/genre/show/<%= genre._id %>"><i class="far fa-eye"></i></a>
+        <form class="inline-block" action="/genre/remove/<%= genre._id %>?_method=DELETE" method="post">
+            <button class="btn btn-danger" type="submit"><i class="fas fa-trash-alt"></i></button>
+        </form>   
+    </div>
+
+
+<% }) %>
+
+<div class="bottom">
+    <a class="btn add-btn btn-primary" href="/genre/add"><i class="fas fa-folder-plus"></i></a>
+</div>

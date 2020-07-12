@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+        body { background-color: #55423d; }
+        h1, h2, h3, h4, h5 { color: #fffffe; }
+        p, form, span, body { color: #fff3ec; }
+        span { margin-top: -10px; margin-bottom: 10px; }
+        h5 { margin-top: 5px; }
+        a { color: #e78fb3; padding: 2rem; }
+        header { text-align: center; margin: 10px; }
+        img { height: 40vh; }
+        input { width: 60vw; }
+        .pills {
+            border: 2px solid #140d0b;
+            border-radius: 30px;
+            padding: 1rem;
+        }
+        .lg-img { height: 50vh; }
+        .left { float: left; margin-right: 10px; clear: both; }
+        .right { float: right; }
+        .container { width: 80vw; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .margin { margin: 10px; }
+        .center { text-align: center; }
+        .cell { text-align: center; padding: 5px; }
+        .red { background-color: red; }
+        .btn { 
+            background-color: #ffc0ad;
+            color: #271c19;
+            font-size: 10px;
+            border: none;
+            display: inline-block;
+        }
+        a:hover { 
+            color: #ffc0ad; 
+            text-decoration: none;
+        }
+        .inline-block { display: inline-block; }
+        .block { display: block; }
+        .bottom {
+            position: fixed;
+            bottom: 5vh; right: 5vw;
+        }
+        .add-btn { font-size: 20px; }
+        .form { width: 60vw; margin: auto; }
+        @media screen and (max-width: 992px) {
+            img { height: 30vh; }
+            .grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+    <title>Movie Database</title>
+</head>
+<body>
+    <header>
+        <h2><%= title %></h2>
+        <nav>
+            <a href="/">@homepage</a>
+            <a href="/creator">@creators</a>
+            <a href="/genre">@genres</a>
+            <a href="/voice">@voice-actors</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            
+            <%- body %>  
+            
+        </div>
+    </div>  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/all.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

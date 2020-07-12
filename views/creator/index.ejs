@@ -1,0 +1,48 @@
+<!-- <div class="col-6 ml-3">
+    <% creators.forEach( creator => { %>
+        <h4><%= creator.name %></h4>
+        <img src="<%= creator.imagePath %>" alt="Self Portrait">
+        <p>Age: <%= creator.age %></p>
+        <p><%= creator.desc %></p>
+
+        <a class="btn btn-primary" href="/creator/show/<%= creator.name %>/<%= creator._id %>">See more</a>
+        <a class="btn btn-primary" href="/creator/edit/<%= creator._id %>">Edit entry</a>
+        <form action="/creator/remove/<%= creator._id %>?_method=DELETE" method="post">
+            <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+    <% }) %>  
+</div>
+<div class="col-5 ml-1 mr-1">
+    <form class="form-group" action="/creator/add" method="post">
+        <h3>Let's add a new creator!</h3>
+        <label for="">Name</label>
+        <input class="form-control" type="text" name="name">
+        <label for="">Age</label>
+        <input class="form-control" type="text" name="age">
+        <label for="">Description</label>
+        <input class="form-control" type="text" name="desc">        
+        <label for="">Image path</label>
+        <input class="form-control" type="text" name="imagePath">
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>  
+</div> -->
+
+<div class="grid">
+    <% creators.forEach( creator => { %>
+        <div class="cell">
+            <img src="<%= creator.imagePath %>" alt="Poster">
+            <h5><%= creator.name %></h5>
+            <span class="block">Age: <%= creator.age %></span>
+            <div>
+                <a class="btn btn-primary" href="/creator/show/<%= creator._id %>"><i class="far fa-eye"></i></a>
+                <a class="btn btn-primary" href="/creator/edit/<%= creator._id %>"><i class="fas fa-pen"></i></a>
+                <form class="inline-block" action="/creator/remove/<%= creator._id %>?_method=DELETE" method="post">
+                    <button class="btn btn-danger" type="submit"><i class="fas fa-trash-alt"></i></button>
+                </form>   
+            </div>
+        </div>
+    <% }) %>      
+</div>
+<div class="bottom">
+    <a class="btn add-btn btn-primary" href="/creator/add"><i class="fas fa-folder-plus"></i></a>
+</div>
