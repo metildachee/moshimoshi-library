@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const Genre = require('../models/genre');
-const { route } = require('./creator');
 
 router.get("/", (req, res) => {
     Genre.find().
@@ -34,8 +33,6 @@ module.exports = router;
 <% movie.dir.forEach( dir => { %>
     <a href="/remove/creator/<%= dir %>/movie/<%= movie._id %>"><%= dir %></a>
 <% }) %>
-
-
 
 <p>Add genre</p>
 <% creators.forEach( creator => { %>
