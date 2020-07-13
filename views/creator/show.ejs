@@ -9,7 +9,10 @@
             <img class="left" src="<%= movie.imagePath %>" alt="Poster">
             <p>Description: <%= movie.desc %></p>
             <p>Creator: <%= creator.name %></p>
-            <p>Genre: <%= movie.genre %></p>
+            <p>Genre:</p>
+            <% movie.genres.forEach( genre => { %>
+                <%= genre.type %>
+            <% }) %>
         </div>
     <% }) %>
 </div>

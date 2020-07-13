@@ -2,6 +2,7 @@
     <div class="pills">
         <%= genre.type %>
         <a class="btn btn-primary" href="/genre/show/<%= genre._id %>"><i class="far fa-eye"></i></a>
+        <a class="btn btn-primary" href="/genre/edit/<%= genre._id %>"><i class="fas fa-pen"></i></a>
         <form class="inline-block" action="/genre/remove/<%= genre._id %>?_method=DELETE" method="post">
             <button class="btn btn-danger" type="submit"><i class="fas fa-trash-alt"></i></button>
         </form>   

@@ -36,7 +36,6 @@ router.post("/add", async (req, res) => {
 })
 
 router.delete("/remove/:id", (req, res) => {
-    console.log("Item deleted");
     Creator.findByIdAndDelete(req.params.id).
     then( () => res.redirect("/creator") ).
     catch( err => console.log(err) );
@@ -45,14 +44,20 @@ router.delete("/remove/:id", (req, res) => {
 router.get("/edit/:id", (req, res) => {
     Creator.findByIdAndUpdate(req.params.id).
     then( creator => {
-        res.render("creator/edit", { title: "Update " + creator.name, creator: creator })
+        res.render("creator/edit", { title: "update " + creator.name, creator: creator })
     }).
     catch( err => console.log(err) )
 })
 
 router.get("/show/:id", (req, res) => {
     Creator.findById(req.params.id).
-    populate("works").
+    populate({
+        path: "works", 
+        populate: {
+            path: "genres",
+            model: "Genre"
+        }
+    }).
     exec( (err, creator) => { 
         res.render("creator/show", { creator: creator, title: "Viewing " + creator.name }); 
     });

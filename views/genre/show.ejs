@@ -1,1 +1,16 @@
 <%= genre.desc %>
+
+<h2>Works in this genre:</h2>
+<% genre.works.forEach( work => { %>
+    <div>
+        <img class="left lg-img" src="<%= work.imagePath %>" alt="">
+        <p><%= work.title %> by <%= work.creator.name %></p> 
+        <%= work.desc %>
+    </div>
+<% }) %>
+
+<div>
+    <% if (genre.works.length == 0) { %>
+        <h3>No works found in this genre..</h3>
+    <% } %>
+</div>

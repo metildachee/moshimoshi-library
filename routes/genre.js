@@ -13,18 +13,21 @@ router.get("/add", (req, res) => {
 
 router.post("/add", (req, res) => {
     Genre.create({ type: req.body.type, desc: req.body.desc }).
-    then( () => res.redirect("/genre"));
+    then( () => res.redirect("/genre") );
 })
 
 router.get("/show/:id", (req, res) => {
     Genre.findById(req.params.id).
-    then( genre => res.render("genre/show", { genre, title: "@" + genre.type.toLowerCase() + "-genre" })).
-    catch( err => console.log(err) );
+    populate({
+        path: "works",
+        populate: { path: "creator", model: "Creator" }
+    }).
+    exec((err, genre) => { res.render("genre/show", { genre, title: "@" + genre.type.toLowerCase() + "-genre" }) });
 })
 
 router.delete("/remove/:id", (req, res) => {
     Genre.findByIdAndDelete(req.params.id).
-    then( () => res.redirect("/genre"));
+    then( () => res.redirect("/genre") );
 })  
 
 module.exports = router;

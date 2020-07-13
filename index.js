@@ -56,12 +56,15 @@ app.post("/add", async (req, res) => {
         let genre = req.body.genres.split(", ")[i];
         await Genre.find({ type: genre }).
         then( async value => {
-            if (value != 0) genreArr.push(value._id);
+            if (value != 0) {
+                genreArr.push(value[0]._id);
+                await Genre.findOneAndUpdate(value[0]._id, { $addToSet: { works: movie._id }});
+            }
             else {
                 await Genre.create({ type: genre }).
                 then( newGenre => { 
-                    console.log(newGenre);
-                    genreArr.push(newGenre._id);  
+                    genreArr.push(newGenre._id); 
+                    Genre.findOneAndUpdate(newGenre._id, { $addToSet: { works: movie._id }});
                 });
             }
         })
@@ -96,11 +99,15 @@ app.post("/edit/:id", async (req, res) => {
         let genre = req.body.genres.split(", ")[i];
         await Genre.find({ type: genre }).
         then( async value => {
-            if (value != 0) genreArr.push(value._id);
+            if (value != 0) {
+                genreArr.push(value[0]._id);
+                await Genre.findByIdAndUpdate(value[0]._id, { $addToSet: { works: [req.params.id] }});
+            }
             else {
                 await Genre.create({ type: genre }).
-                then( newGenre => { 
-                    genreArr.push(newGenre._id);  
+                then( async newGenre => { 
+                    genreArr.push(newGenre._id); 
+                    await Genre.findByIdAndUpdate(newGenre._id, {  $addToSet: { works: [req.params.id] }})
                 });
             }
         })
